@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app-view" class="bookShow">
+      <div class="container">
+        <div>
+          <img
+            src="./7ec9dd526e69aaf72bd104a9cc807096--design-logo-words-quotes.jpg"
+            alt=""
+            class="logo"
+          />
+        </div>
+        <div class="filtercolor">
+          <input type="text" v-model="search" placeholder="search" />
+        </div>
+      </div>
+
+      <div class="container2">
+        <div class="flip-card" v-for="book in filters" :key="book.title">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img class="cover" v-bind:src="book.cover" />
+            </div>
+            <div class="flip-card-back">
+              <p class="text">{{book.description}}</p>
+              <p class="text">{{book.language}}</p>
+              <p class="text">{{book.title}}</p>
+              <a v-bind:href="book.detail" data-fancybox="gallery">
+                <p class="button">More Detail</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./table.js"></script>
+  </body>
+</html>
